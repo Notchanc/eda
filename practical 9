@@ -1,1 +1,34 @@
 Aim= multiple histogram and multiple boxplots ,multiple scatter plot and colouring the graph
+
+code
+
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Sample data (replace with your actual data)
+data <- data.frame(
+  group = factor(rep(c("A", "B", "C"), each = 10)),
+  x = rnorm(30, mean = c(10, 20, 30), sd = 5),
+  y = rnorm(30, mean = c(5, 15, 25), sd = 5)
+)
+
+# Multiple Histograms
+ggplot(data, aes(x = x, fill = group)) +
+  geom_histogram(binwidth = 3, position = "dodge") +
+  labs(title = "Multiple Histograms", x = "Value", y = "Frequency")
+
+# Multiple Boxplots
+ggplot(data, aes(x = group, y = y, fill = group)) +
+  geom_boxplot() +
+  labs(title = "Multiple Boxplots", x = "Group", y = "Value")
+
+# Multiple Scatter Plots with Color
+ggplot(data, aes(x = x, y = y, color = group)) +
+  geom_point() +
+  labs(title = "Multiple Scatter Plots with Color", x = "Variable x", y = "Variable y")
+
+# Multiple Scatter Plots with Different Shapes
+ggplot(data, aes(x = x, y = y, shape = group)) +
+  geom_point(size = 3) +
+  labs(title = "Multiple Scatter Plots with Shapes", x = "Variable x", y = "Variable y")
