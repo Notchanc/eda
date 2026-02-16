@@ -1,1 +1,28 @@
 Aim= lattice system in R environment and graphical window in R and its uses
+
+code
+
+
+# Load the lattice library
+library(lattice)
+
+# Sample data
+data <- data.frame(
+  group = factor(rep(c("A", "B", "C"), each = 10)),
+  x = rnorm(30, mean = c(10, 20, 30), sd = 5)
+)
+
+# Create a lattice histogram
+histogram(~ x | group, data = data,
+    xlab = "value", ylab = "Frequency",
+    main = "Histograms by Group")
+
+# Create a lattice boxplot
+bwplot(~ x | group, data = data,
+    xlab = "Group", ylab = "Value",
+    main = "Boxplots by Group")
+
+# Create a lattice scatter plot (with a dummy y variable for demonstration)
+xylot(rnorm(30) ~ x | group, data = data,
+    xlab = "Variable x", ylab = "Variable y",
+    main = "Scatter Plots by Group")
