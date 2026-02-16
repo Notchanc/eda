@@ -23,3 +23,44 @@ mtcars %>%
     arrange(desc(avg_mpg_per_cyl)) %>% 
     filter(avg_mpg_per_cyl > 20) %>% 
     select(num_cylinders, avg_mpg_per_cyl)
+
+
+
+use this code 
+
+
+
+# Load dplyr
+library(dplyr)
+
+# 1. Show first few rows of mtcars
+print(head(mtcars))
+
+# 2. Mutate: Add a column with average mpg per cylinder (keeps all rows)
+step_2_mutated <- mtcars %>%
+  group_by(cyl) %>%
+  mutate(avg_mpg_per_cyl = mean(mpg))
+print(step_2_mutated)   # Prints 32 rows (only first 10 displayed by default)
+
+# 3. Summarize: Calculate average mpg per cylinder (collapses to 3 rows)
+step_2_summary <- mtcars %>%
+  group_by(cyl) %>%
+  summarize(avg_mpg_per_cyl = mean(mpg))
+print(step_2_summary)   # 3 × 2 tibble: cyl, avg_mpg_per_cyl
+
+# 4. Rename 'cyl' to 'num_cylinders' and arrange by descending average mpg
+step_3_arranged <- step_2_summary %>%
+  rename(num_cylinders = cyl) %>%
+  arrange(desc(avg_mpg_per_cyl))
+print(step_3_arranged)  # 3 rows: 4, 6, 8 cylinders
+
+# 5. Filter to keep only groups with average mpg > 20
+final_result <- step_3_arranged %>%
+  filter(avg_mpg_per_cyl > 20)
+print(final_result)     # 1 row: num_cylinders = 4
+
+# 6. Message and select columns (though already selected)
+print("--- Output of select(num_cylinders, avg_mpg_per_cyl) ---")
+final_selection <- step_3_arranged %>%
+  select(num_cylinders, avg_mpg_per_cyl)
+print(final_selection)  # Same as step_3_arranged (3 rows)
