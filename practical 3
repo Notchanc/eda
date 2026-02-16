@@ -1,0 +1,25 @@
+aim = use groupby(), %>%,mutate(),rename(),arrange(),filter(),select()
+
+
+code
+
+# Load the dplyr package
+library(dplyr)
+
+# Example using mtcars dataset
+
+# 1. Group data by number of cylinders (cyl)
+# 2. Calculate average miles per gallon (mpg) for each group
+# 3. Create a new column 'avg_mpg_per_cyl'
+# 4. Rename the 'cyl' column to 'num_cylinders'
+# 5. Arrange the data in descending order of average mpg
+# 6. Filter for cars with more than 20 mpg
+# 7. Select only the 'num_cylinders' and 'avg_mpg_per_cyl' columns
+
+mtcars %>% 
+    group_by(cyl) %>% 
+    mutate(avg_mpg_per_cyl = mean(mpg)) %>% 
+    rename(num_cylinders = cyl) %>% 
+    arrange(desc(avg_mpg_per_cyl)) %>% 
+    filter(avg_mpg_per_cyl > 20) %>% 
+    select(num_cylinders, avg_mpg_per_cyl)
