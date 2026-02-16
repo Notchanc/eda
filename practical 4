@@ -1,1 +1,41 @@
 Aim= use the dataset air quality from inbuilt data sets library 
+
+
+code 
+
+
+# Load necessary libraries
+library(datasets)
+
+# Access the airquality dataset
+data("airquality")
+
+# a) Summary Statistics
+summary(airquality)
+
+# b) Boxplot
+boxplot(airquality$Ozone, main = "Boxplot of Ozone Levels")
+
+# Calculate Interquartile Range (IQR)
+Q3 <- quantile(airquality$Ozone, 0.75, na.rm = TRUE)
+Q1 <- quantile(airquality$Ozone, 0.25, na.rm = TRUE)
+IQR <- Q3 - Q1
+
+# Inner and Outer Fences for Outlier Detection
+lower_inner_fence <- Q1 - 1.5 * IQR
+upper_inner_fence <- Q3 + 1.5 * IQR
+lower_outer_fence <- Q1 - 3 * IQR
+upper_outer_fence <- Q3 + 3 * IQR
+
+# c) Check for Missing values
+sum(is.na(airquality))
+
+# Check missing values in each column
+colSums(is.na(airquality))
+
+# Handle Missing Values (Example: Imputation with Mean)
+# Impute missing values in 'Ozone' column with the mean
+airquality$Ozone[is.na(airquality$Ozone)] <- mean(airquality$Ozone, na.rm = TRUE)
+
+# d) Histogram
+hist(airquality$Ozone, main = "Histogram of Ozone Levels", xlab = "Ozone", col = "lightblue")
