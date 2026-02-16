@@ -1,1 +1,32 @@
 Aim= use bar plot and identify the difference between bar plot and histograms
+
+
+code
+
+# Load necessary library
+library(ggplot2)
+
+# Sample categorical data (replace with your actual data)
+data <- data.frame(
+  Category = c("A", "B", "C", "D"),
+  Count = c(20, 15, 30, 10)
+)
+
+# Create bar plot
+ggplot(data, aes(x = Category, y = Count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(title = "Bar Plot of Categorical Data",
+    x = "Category",
+    y = "Count")
+
+# Sample continuous data (replace with your actual data)
+data_continuous <- data.frame(
+  values = rnorm(100, mean = 50, sd = 10)
+)
+
+# Create histogram
+ggplot(data_continuous, aes(x = values)) +
+  geom_histogram(binwidth = 5, fill = "lightgreen", color = "black") +
+  labs(title = "Histogram of Continuous Data",
+    x = "Values",
+    y = "Frequency")
