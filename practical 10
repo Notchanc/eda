@@ -13,16 +13,28 @@ data <- data.frame(
 )
 
 # Create a lattice histogram
-histogram(~ x | group, data = data,
-    xlab = "value", ylab = "Frequency",
-    main = "Histograms by Group")
+histogram(
+  ~ x | group,
+  data = data,
+  xlab = "Value",
+  ylab = "Frequency",
+  main = "Histograms by Group"
+)
 
 # Create a lattice boxplot
-bwplot(~ x | group, data = data,
-    xlab = "Group", ylab = "Value",
-    main = "Boxplots by Group")
+bwplot(
+  ~ x | group,
+  data = data,
+  xlab = "Group",
+  ylab = "Value",
+  main = "Boxplots by Group"
+)
 
-# Create a lattice scatter plot (with a dummy y variable for demonstration)
-xylot(rnorm(30) ~ x | group, data = data,
-    xlab = "Variable x", ylab = "Variable y",
-    main = "Scatter Plots by Group")
+# Create a lattice scatter plot
+xyplot(
+  rnorm(30) ~ x | group,
+  data = data,
+  xlab = "Variable X",
+  ylab = "Variable Y",
+  main = "Scatter Plots by Group"
+)
