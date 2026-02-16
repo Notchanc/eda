@@ -1,1 +1,24 @@
 Aim= Five numbers summary in exploratory data analysis
+
+
+code
+
+
+# Load necessary libraries
+library(dplyr)
+
+# Sample data (replace with your actual data)
+data <- c(10, 12, 15, 8, 20, 18, 11, 14, 16, 9)
+
+# Calculate five-number summary using dplyr
+five_number_summary <- data %>% 
+    summarize(
+    minimum = min(.),
+    Q1 = quantile(., 0.25),
+    median = median(.), 
+    Q3 = quantile(., 0.75), 
+    maximum = max(.)
+    )
+
+# Print the results
+print(five_number_summary)
