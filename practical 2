@@ -31,3 +31,46 @@ mtcars %>%
   filter(cyl == 4) %>% 
   select(mpg, hp) %>% 
   arrange(desc(hp))
+
+
+
+code use this 
+
+
+
+# Load dplyr
+library(dplyr)
+
+# View first few rows of mtcars
+print(head(mtcars))
+
+# 1. Filter: Keep rows where mpg > 20
+filtered_data <- mtcars %>%
+  filter(mpg > 20)
+print(filtered_data)
+
+# 2. Select: Choose only mpg, cyl, and hp columns
+selected_data <- mtcars %>%
+  select(mpg, cyl, hp)
+print(selected_data)
+
+# 3. Arrange: Sort by hp in descending order
+arranged_data <- mtcars %>%
+  arrange(desc(hp))
+print(arranged_data)
+
+# 4. Mutate: Create a new column power_weight = hp / wt
+mutated_data <- mtcars %>%
+  mutate(power_weight = hp / wt)
+print(mutated_data)
+
+# 5. Summarise: Calculate the overall average mpg
+summary_data <- mtcars %>%
+  summarise(avg_mpg = mean(mpg))
+print(summary_data)
+
+# 6. Group by and summarise: Average mpg per cylinder group
+grouped_summary <- mtcars %>%
+  group_by(cyl) %>%
+  summarise(avg_mpg = mean(mpg))
+print(grouped_summary)
