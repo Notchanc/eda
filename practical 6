@@ -45,3 +45,79 @@ ggplot(data.frame(x = density_data$x, y = density_data$y, z = c(density_data$z))
   labs(title = "Contour Plot of Two-Dimensional Data",
     x = "Variable x",
     y = "Variable y")
+
+
+
+
+fixed code
+
+
+
+# Load necessary libraries
+library(ggplot2)
+library(MASS)
+
+# Sample two-dimensional data
+data <- data.frame(
+  x = c(1, 2, 3, 4, 5),
+  y = c(2, 4, 3, 6, 1)
+)
+
+# -------------------------------------------------
+# 1. Scatter Plot
+# -------------------------------------------------
+ggplot(data, aes(x = x, y = y)) +
+  geom_point(size = 3, color = "blue") +
+  labs(title = "Scatter Plot of Two-Dimensional Data",
+       x = "Variable x",
+       y = "Variable y") +
+  theme_minimal()
+
+
+# -------------------------------------------------
+# 2. Line Plot
+# -------------------------------------------------
+ggplot(data, aes(x = x, y = y)) +
+  geom_line(color = "darkgreen", linewidth = 1) +
+  geom_point(size = 2) +
+  labs(title = "Line Plot of Two-Dimensional Data",
+       x = "Variable x",
+       y = "Variable y") +
+  theme_minimal()
+
+
+# -------------------------------------------------
+# 3. Create 2D Density Estimate
+# -------------------------------------------------
+density_data <- kde2d(data$x, data$y)
+
+# Convert density output to proper data frame
+density_df <- expand.grid(
+  x = density_data$x,
+  y = density_data$y
+)
+
+density_df$z <- as.vector(density_data$z)
+
+
+# -------------------------------------------------
+# 4. Heatmap
+# -------------------------------------------------
+ggplot(density_df, aes(x = x, y = y, fill = z)) +
+  geom_raster() +
+  scale_fill_gradient(low = "white", high = "red") +
+  labs(title = "Heatmap of Two-Dimensional Data",
+       x = "Variable x",
+       y = "Variable y") +
+  theme_minimal()
+
+
+# -------------------------------------------------
+# 5. Contour Plot (FIXED)
+# -------------------------------------------------
+ggplot(density_df, aes(x = x, y = y, z = z)) +
+  geom_contour(color = "blue", linewidth = 1) +
+  labs(title = "Contour Plot of Two-Dimensional Data",
+       x = "Variable x",
+       y = "Variable y") +
+  theme_minimal()
