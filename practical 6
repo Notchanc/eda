@@ -1,1 +1,47 @@
 Aim = explore the two dimensional data
+
+code
+
+# Load necessary libraries
+library(ggplot2)
+
+# Sample two-dimensional data (replace with your actual data)
+data <- data.frame(
+  x = c(1, 2, 3, 4, 5),
+  y = c(2, 4, 3, 6, 1)
+)
+
+# 1. Scatter Plot
+ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Two-Dimensional Data",
+    x = "Variable x",
+    y = "Variable y")
+
+# 2. Line Plot (if you have a time series or ordered data)
+ggplot(data, aes(x = x, y = y)) +
+  geom_line() +
+  labs(title = "Line Plot of Two-Dimensional Data",
+    x = "Variable x",
+    y = "Variable y")
+
+# 3. Heatmap (for visualizing density)
+# Create a 2D density estimate
+density_data <- MASS::kde2d(data$x, data$y)
+
+# Create heatmap
+ggplot(data.frame(x = density_data$x, y = density_data$y, z = c(density_data$z)),
+  aes(x = x, y = y, fill = z)) +
+  geom_raster() +
+  scale_fill_gradient(low = "white", high = "red") +
+  labs(title = "Heatmap of Two-Dimensional Data",
+    x = "Variable x",
+    y = "Variable y")
+
+# 4. Contour Plot (for visualizing density contours)
+ggplot(data.frame(x = density_data$x, y = density_data$y, z = c(density_data$z)),
+  aes(x = x, y = y)) +
+  geom_contour(aes(z = z)) +
+  labs(title = "Contour Plot of Two-Dimensional Data",
+    x = "Variable x",
+    y = "Variable y")
