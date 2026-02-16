@@ -1,0 +1,36 @@
+Aim= managing data frames with the dplyr package
+ 
+ 
+ code 
+
+ install.packages("dplyr") # Install if not already installed
+library(dplyr)
+data <- data.frame(
+  name = c("Alice", "Bob", "Charlie", "David", "Emily"),
+  age = c(25, 30, 22, 28, 27),
+  city = c("New York", "Los Angeles", "Chicago", "London", "Paris")
+)
+
+# Select rows where age is greater than 25
+filtered_data <- filter(data, age > 25)
+
+# Select only name and age columns
+selected_data <- select(data, name, age)
+
+# Sort by age in descending order
+arranged_data <- arrange(data, desc(age))
+
+# Create a new column 'is_adult' based on age
+mutated_data <- mutate(data, is_adult = age >= 18)
+
+# Calculate the average age
+summary_data <- summarize(data, mean_age = mean(age))
+
+# Group by city and calculate average age for each city
+grouped_data <- group_by(data, city)
+summarized_grouped_data <- summarize(grouped_data, mean_age = mean(age))
+
+# Find the names of people older than 25 living in New York
+result <- data %>% 
+  filter(age > 25 & city == "New York") %>% 
+  select(name)
