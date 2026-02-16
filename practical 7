@@ -1,1 +1,22 @@
 Aim= scatter plot between two variables
+
+
+code
+
+# Load necessary library
+library(ggplot2)
+
+# Sample data (replace with your actual data)
+data <- data.frame(
+  x = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+  y = c(2, 4, 3, 6, 1, 8, 7, 9, 5, 10)
+)
+
+# Create scatter plot using ggplot2
+ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  labs(
+    title = "scatter Plot of Two Variables",
+    x = "Variable x",
+    y = "Variable y"
+  )
