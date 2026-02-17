@@ -1,0 +1,113 @@
+Practical 1 – Data Manipulation using dplyr
+Q: What is dplyr?
+A: dplyr is an R package used for data manipulation such as filtering, selecting, arranging,
+and summarizing data.
+Q: What does filter() do?
+A: filter() is used to select rows based on a condition.
+Q: What is select()?
+A: select() is used to select specific columns from a dataset.
+Q: What does mutate() do?
+A: mutate() creates a new column or modifies an existing column.
+Q: What is summarize()?
+A: summarize() calculates summary statistics like mean, median, etc.
+Q: What is group_by()?
+A: group_by() groups data based on a column for analysis.
+
+
+Practical 2 – Data Manipulation using mtcars dataset
+Q: What is mtcars dataset?
+A: mtcars is a built-in dataset in R that contains car information.
+Q: What does arrange() do?
+A: arrange() sorts the dataset in ascending or descending order.
+Q: What is pipe operator (%>%)?
+A: It passes output of one function as input to another.
+Q: Why mutate() is used?
+A: To create a new column.
+
+
+Practical 3 – Grouping and Summarizing Data
+Q: Why use group_by()?
+A: To divide data into groups for analysis.
+Q: What does mean() function do?
+A: It calculates the average value.
+Q: What is data summarization?
+A: It means calculating summary statistics like mean, median, etc.
+Q: Why arrange(desc()) is used?
+A: To sort data in descending order.
+
+
+Practical 4 – Outlier Detection
+Q: What is an outlier?
+A: An outlier is a value that is very different from other values.
+Q: What is IQR?
+A: IQR (Interquartile Range) = Q3 − Q1.
+Q: How to detect outliers?
+A: Using lower bound = Q1 − 1.5×IQR and upper bound = Q3 + 1.5×IQR.
+Q: What are missing values?
+A: Missing values are values not present in dataset (NA).
+Q: How to handle missing values?
+A: Replace with mean, median, or remove them.
+
+
+Practical 5 – Bar Plot and Histogram
+Q: What is ggplot2?
+A: ggplot2 is a package used for data visualization.
+Q: What is bar plot?
+A: It shows comparison between categories.
+Q: What is histogram?
+A: Histogram shows distribution of continuous data.
+Q: What is geom_bar()?
+A: Used to create bar chart.
+Q: What is geom_histogram()?
+A: Used to create histogram.
+
+
+Practical 6 – Scatter and Line Plot
+Q: What is scatter plot?
+A: It shows relationship between two variables.
+Q: What is line plot?
+A: It shows trend over time.
+Q: What is density plot?
+A: It shows distribution of data.
+Q: What is contour plot?
+A: It shows 3D data in 2D form.
+
+
+Practical 7 – Scatter Plot using ggplot2
+Q: Why scatter plot is used?
+A: To show relationship between two variables.
+Q: What does geom_point() do?
+A: It creates scatter plot points.
+Q: What is data visualization?
+A: It is graphical representation of data.
+
+
+Practical 8 – Five Number Summary
+Q: What is five number summary?
+A: Minimum, Q1, Median, Q3, Maximum.
+Q: What is median?
+A: Middle value of dataset.
+Q: What is quantile()?
+A: It calculates quartiles.
+
+
+Practical 9 – Multiple Plots
+Q: What is boxplot?
+A: It shows distribution and outliers.
+Q: Why use multiple histograms?
+A: To compare groups.
+Q: What is geom_boxplot()?
+A: Used to create boxplot.
+Q: Why use color and shape?
+A: To differentiate groups.
+
+
+Practical 10 – Visualization using lattice
+Q: What is lattice package?
+A: It is used for advanced plotting in R.
+Q: What is histogram()?
+A: Used to show frequency distribution.
+Q: What is bwplot()?
+A: Used to create boxplot.
+Q: What is xyplot()?
+A: Used to create scatter plot.
